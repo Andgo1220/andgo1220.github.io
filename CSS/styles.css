@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'chunkfive'; /*a name to be used later*/
+    src: url('fonts/chunkfive.otf'); /*URL to font*/
+}
+
+/* --- */
+
+* {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+body {
+    min-height: 100vh;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    font-family: 'chunkfive';
+    -webkit-text-stroke: 0.25px black;
+    color: #fff;
+}
+
+.social-ico {
+    width: 24px;
+    height: auto;
+}
+
+.logo {
+    margin: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: #888;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* --- */
+
+header {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- */
+
+footer {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 30px;
+}
+
+.dropdown-content {
+    margin-top: 6px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    background-color: #fff;
+    border: 1px solid #111;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    padding: 8px;
+    display: block;
+}
+
+.show {
+    display: block !important;
+}
+
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
