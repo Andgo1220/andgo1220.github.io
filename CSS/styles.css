@@ -71,6 +71,17 @@ main {
     height: auto;
 }
 
+@media (max-width: 500px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .socials {
+        justify-content: center;
+    }
+}
+
 .logo {
     margin: 8px;
 }
@@ -102,7 +113,10 @@ nav ul {
     display: flex;
     gap: 20px;
     margin: 0;
-    padding: 0;
+}
+
+.navbtn {
+    padding: 10px 15px;
 }
 
 .btn {
