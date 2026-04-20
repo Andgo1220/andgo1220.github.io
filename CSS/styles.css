@@ -44,6 +44,7 @@ body {
     border-image-slice: 20 fill;
     border-image-repeat: stretch;
     background-clip: padding-box;
+    overflow-x: auto;
 }
 
 main {
