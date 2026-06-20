@@ -1,36 +1,38 @@
-name: Hourly Subscriber Update (Direct Mobile)
+name: Hourly Subscriber Update (Official API)
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *'  # Runs exactly once per hour
+  workflow_dispatch:     # Retains your manual trigger override button
 
 permissions:
-  contents: write
+  contents: write        # Explicit authorization to let the bot save stats.json
 
 jobs:
   refresh-stats:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository Code
         uses: actions/checkout@v4
 
-      # We combine setup, install, and execution into one sequential process block
-      - name: Setup Python, Install Dependencies, and Run Scraper
+      # Unified setup, installation, and deployment pipeline 
+      - name: Initialize Environment and Run Automation Engine
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install requests
           python scraper.py
 
-      - name: Commit and Push Changes
+      - name: Commit and Push Data Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@://github.com"
           
           if git diff --quiet stats.json; then
-            echo "No changes detected."
+            echo "No changes in metrics detected since last hour execution."
           else
             git add stats.json
-            git commit -m "Automated native subscriber update [skip ci]"
+            git commit -m "Automated subscriber metric update [skip ci]"
             git push
           fi
