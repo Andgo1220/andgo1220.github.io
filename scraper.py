@@ -3,35 +3,44 @@ import subprocess
 import time
 from datetime import datetime
 
-# 1. Define the channels you want to monitor
 CHANNELS = [
     "UCDNkrZUKhA2VAGu5j11AhnQ",
     "UCX6OQ3DkcsbYNE6H8uQQuVA"
 ]
 
 def get_subscriber_count(channel_id):
-    """Uses yt-dlp to safely fetch the follower/subscriber count string."""
     url = f"https://youtube.com{channel_id}"
     cmd = [
         "yt-dlp",
         "--dump-json",
         "--no-download",
         "--no-warnings",
+        "--playlist-items", "0",  # CRUCIAL: Blocks video loops, fetches only main headers
         url
     ]
     
     try:
-        # Run yt-dlp via CLI and catch the raw json metadata payload
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         data = json.loads(result.stdout)
         
-        # yt-dlp populates channel details inside 'channel_follower_count'
-        subs = data.get("channel_follower_count")
-        return str(subs) if subs else "Hidden"
+        # Pull alternative key values depending on layout variations
+        subs = data.get("follower_count") or data.get("channel_follower_count")
         
+        if subs:
+            return str(subs)
+            
+        # Fallback raw metadata text parsing if json structures switch
+        if "description" in data and "subscribers" in data.get("description", "").lower():
+            return "Protected Data"
+            
+        return "Hidden"
+        
+    except subprocess.CalledProcessError as e:
+        print(f"CLI Error for {channel_id}: {e.stderr}")
+        return "Blocked by YouTube"
     except Exception as e:
-        print(f"Error scraping {channel_id}: {e}")
-        return "Error"
+        print(f"Parsing Error for {channel_id}: {e}")
+        return "Parsing Error"
 
 def main():
     output_data = {
@@ -40,14 +49,13 @@ def main():
     }
     
     for cid in CHANNELS:
-        print(f"Scraping channel: {cid}...")
+        print(f"Processing: {cid}...")
         output_data["channels"][cid] = get_subscriber_count(cid)
-        time.sleep(1) # Brief polite pause between network calls
+        time.sleep(2) # Extended delay to stay clear of IP limits
         
-    # Overwrite your local static stats file 
     with open("stats.json", "w") as f:
         json.dump(output_data, f, indent=2)
-    print("Successfully updated stats.json!")
+    print("Export Complete.")
 
 if __name__ == "__main__":
     main()
