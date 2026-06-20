@@ -35,7 +35,7 @@ jobs:
             git add stats.json
             git commit -m "Automated subscriber metric update [skip ci]"
             
-            # CRUCIAL FIX: Pulls your online code updates first to prevent push rejections
+            # This specific line pulls latest web edits before attempting to push
             git pull --rebase origin main
             
             git push origin main
