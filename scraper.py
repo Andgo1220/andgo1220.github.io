@@ -8,65 +8,62 @@ CHANNELS = [
     "UCX6OQ3DkcsbYNE6H8uQQuVA"
 ]
 
-def get_subscriber_count_mobile(channel_id):
-    # Using m.youtube.com forces YouTube to load the high-trust mobile web app layout
+def get_subscriber_count_modern(channel_id):
+    # Fetch from desktop channel endpoint to access the canonical ytInitialData layout
     url = f"https://youtube.com{channel_id}"
     
-    # Emulate an iOS Mobile Safari fingerprint perfectly
     headers = {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Cache-Control": "no-cache",
-        "Pragma": "no-cache"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9"
     }
     
     try:
-        session = requests.Session()
-        response = session.get(url, headers=headers, timeout=15)
-        
-        if response.status_code == 404:
-            return "Channel Not Found"
-        response.raise_for_status()
-        
-        html_content = response.text
-        
-        # Search the raw mobile page configuration object for subscriber details
-        match = re.search(r'"subscriberCountText"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]+)"\s*\}', html_content)
-        
-        if match:
-            return match.group(1)
+        response = requests.get(url, headers=headers, timeout=15)
+        if response.status_code != 200:
+            return f"HTTP {response.status_code}"
             
-        # Alternative fallback pattern search used on some mobile layout distributions
-        fallback_match = re.search(r'"accessibilityData"\s*:\s*\{\s*"label"\s*:\s*"([^"]+subscribers[^"]*)"\s*\}', html_content)
-        if fallback_match:
-            # Cleans up long labels like "1.42 million subscribers"
-            return fallback_match.group(1)
-
-        return "Hidden/Private"
+        html = response.text
         
-    except requests.exceptions.HTTPError as e:
-        if e.response.status_code == 429:
-            return "Rate Limited"
-        return f"HTTP Error {e.response.status_code}"
+        # 1. Isolate the internal JSON configuration block from YouTube
+        json_extract = re.search(r'var ytInitialData\s*=\s*(\{.*?\});\s*</script>', html)
+        
+        if json_extract:
+            raw_json = json_extract.group(1)
+            
+            # 2. Extract the count text from the isolated string block using a targeted regex
+            sub_match = re.search(r'"subscriberCountText"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]+)"\s*\}', raw_json)
+            if sub_match:
+                return sub_match.group(1)
+                
+            # Alternative layout structural match fallback
+            alt_match = re.search(r'"label"\s*:\s*"([^"]+subscribers)"', raw_json)
+            if alt_match:
+                return alt_match.group(1)
+
+        # 3. Last resort layout parsing: search the global document body text directly
+        body_match = re.search(r'"([^"]+subscribers)"', html)
+        if body_match:
+            return body_match.group(1)
+            
+        return "Not Extracted"
+        
     except Exception as e:
-        return "Extraction Error"
+        return f"Error: {str(e)[:20]}"
 
 def main():
-    print("Initiating Mobile Header Scraping Cycle...")
+    print("Executing structural string matching pipeline...")
     output_data = {
         "updated_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
         "channels": {}
     }
     
     for cid in CHANNELS:
-        print(f"Scraping {cid}...")
-        output_data["channels"][cid] = get_subscriber_count_mobile(cid)
+        print(f"Parsing data fields for: {cid}")
+        output_data["channels"][cid] = get_subscriber_count_modern(cid)
         
     with open("stats.json", "w") as f:
         json.dump(output_data, f, indent=2)
-        
-    print("Workflow Complete. Output saved to stats.json")
+    print("Processing sequence complete.")
 
 if __name__ == "__main__":
     main()
