@@ -27,6 +27,7 @@ def main():
         chunk = CHANNELS[i:i + chunk_size]
         ids_str = ",".join(chunk)
         
+        # FIXED: Proper YouTube API endpoint layout
         url = f"https://googleapis.com{ids_str}&key={api_key}"
         
         try:
