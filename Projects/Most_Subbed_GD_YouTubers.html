@@ -35,7 +35,44 @@
 
                 <div class="table-container">
                 </div>
-            
+                <hr>
+                    <h2>Live Subscriber Analytics</h2>
+    <div id="time-container">Loading updates...</div>
+
+    <div id="dashboard"></div>
+
+    <script>
+        async function loadDashboard() {
+            try {
+                const response = await fetch('/stats.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load stats.json (Status: ${response.status})`);
+                }
+                
+                const data = await response.json();
+                
+                document.getElementById('time-container').innerText = `Data Last Verified: ${data.updated_at}`;
+                
+                const dashboard = document.getElementById('dashboard');
+                dashboard.innerHTML = ''; 
+
+                for (const [channelId, subCount] of Object.entries(data.channels)) {
+                    const card = document.createElement('div');
+                    card.innerHTML = `
+                        <p>ID: ${channelId}<br>Subs: ${subCount}</p>
+                    `;
+                    dashboard.appendChild(card);
+                }
+                
+            } catch (error) {
+                console.error("Dashboard Render Error:", error);
+                document.getElementById('time-container').innerText = "Error: Could not retrieve latest metrics.";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadDashboard);
+    </script>
             </main>
             <div id="footer-placeholder">
 

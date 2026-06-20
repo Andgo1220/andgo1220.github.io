@@ -1,0 +1,42 @@
+name: Hourly Subscriber Update (Python)
+
+on:
+  schedule:
+    - cron: '0 0 */2 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install yt-dlp
+        run: |
+          python -m pip install --upgrade pip
+          pip install yt-dlp
+
+      - name: Execute Python Scraper
+        run: python scraper.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet stats.json; then
+            echo "No changes in subscriber counts."
+          else
+            git add stats.json
+            git commit -m "Automated Python subscriber update [skip ci]"
+            git push
+          fi
