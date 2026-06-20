@@ -27,12 +27,16 @@ jobs:
       - name: Commit and Push Data Changes
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@://github.com"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           if git diff --quiet stats.json; then
             echo "No changes in metrics detected since last hour execution."
           else
             git add stats.json
             git commit -m "Automated subscriber metric update [skip ci]"
-            git push
+            
+            # CRUCIAL FIX: Pulls your online code updates first to prevent push rejections
+            git pull --rebase origin main
+            
+            git push origin main
           fi
