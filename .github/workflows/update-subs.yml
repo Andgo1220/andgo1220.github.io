@@ -1,4 +1,4 @@
-name: Hourly Subscriber Update (Python)
+name: Hourly Subscriber Update (Direct Mobile)
 
 on:
   schedule:
@@ -15,14 +15,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python Environment
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip' # Leverages caching to optimize runtime performance
-
-      # CRUCIAL: Combining execution contexts prevents module path mismatch errors
-      - name: Install Dependencies and Run Scraper
+      # We combine setup, install, and execution into one sequential process block
+      - name: Setup Python, Install Dependencies, and Run Scraper
         run: |
           python -m pip install --upgrade pip
           python -m pip install requests
@@ -31,7 +25,7 @@ jobs:
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
           
           if git diff --quiet stats.json; then
             echo "No changes detected."
