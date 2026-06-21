@@ -22,7 +22,7 @@ def main():
             part="snippet,contentDetails,statistics",
             forHandle=channel
         )
-        response = request.execute
+        response = request.execute()
         json_parsed = json.loads(response)
         sub_count = json_parsed['items'][0]['statistics']['subscriberCount']
         output_data.append(sub_count)
