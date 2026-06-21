@@ -30,13 +30,15 @@ def main():
         response = request.execute()
         sub_count = response['items'][0]['statistics']['subscriberCount']
         display_name = response['items'][0]['snippet']['title']
-        output_data["Channels"][display_name] = {
+        output_data["Channels"][display_name] = [
                 sub_count,
                 channel
-            }
+            ]
     
     timestamp = datetime.now(timezone.utc).timestamp()
     output_data["lastUpdated"] = timestamp
+
+    print(output_data)
 
     with open("stats.json", "w") as f:
         json.dump(output_data, f, indent=2)
