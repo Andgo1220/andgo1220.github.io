@@ -23,8 +23,7 @@ def main():
             forHandle=channel
         )
         response = request.execute()
-        json_parsed = json.loads(response)
-        sub_count = json_parsed['items'][0]['statistics']['subscriberCount']
+        sub_count = response['items'][0]['statistics']['subscriberCount']
         output_data.append(sub_count)
 
     with open("stats.json", "w") as f:
