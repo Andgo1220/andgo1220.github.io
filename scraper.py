@@ -10,7 +10,27 @@ api_version = "v3"
 CHANNELS = [
     "@gdcolon",
     "@andgo122",
-    "@robtopgames"
+    "@robtopgames",
+    "@itszedargd",
+    "@itzbran",
+    "@zedardash",
+    "@guitarherostyles",
+    "@speedroute",
+    "@stivenelvro",
+    "@nexusgd10",
+    "@glowstgd",
+    "@habaneroagd",
+    "@partitionsion",
+    "@kaiguygd",
+    "@chiefbrioso",
+    "@mulpan",
+    "@galluxi",
+    "@xtrapnation",
+    "@dashzedar",
+    "@ciroxp",
+    "@hbargd",
+    "@hbargdclips",
+    "@bitesterxbeast"
 ]
 
 def main():
