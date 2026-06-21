@@ -208,12 +208,15 @@ def main():
             forHandle=channel
         )
         response = request.execute()
-        sub_count = response['items'][0]['statistics']['subscriberCount']
-        display_name = response['items'][0]['snippet']['title']
-        output_data["Channels"][display_name] = [
-                sub_count,
-                channel
-            ]
+        try:
+            sub_count = response['items'][0]['statistics']['subscriberCount']
+            display_name = response['items'][0]['snippet']['title']
+            output_data["Channels"][display_name] = [
+                    sub_count,
+                    channel
+                ]
+        except:
+            print(f"{channel} was a problem...")
     
     timestamp = datetime.now(timezone.utc).timestamp()
     output_data["lastUpdated"] = timestamp
