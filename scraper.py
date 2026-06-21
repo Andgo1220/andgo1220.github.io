@@ -1,7 +1,7 @@
 import os
 import json
 import googleapiclient.discovery
-from datetime import datetime
+from datetime import datetime, timezone
 
 api_key = os.environ["YOUTUBE_API_KEY"]
 api_service_name = "youtube"
@@ -15,7 +15,12 @@ CHANNELS = [
 def main():
     youtube = googleapiclient.discovery.build(api_service_name, api_version, developerKey=api_key)
     
-    output_data = []
+    output_data = {
+        "lastUpdated": None,
+        "Channels": {
+
+        }
+    }
     
     for channel in CHANNELS:
         request = youtube.channels().list(
@@ -24,7 +29,14 @@ def main():
         )
         response = request.execute()
         sub_count = response['items'][0]['statistics']['subscriberCount']
-        output_data.append(sub_count)
+        display_name = response['items'][0]['snippet']['title']
+        output_data["Channels"][display_name] = {
+                sub_count,
+                channel
+            }
+    
+    timestamp = datetime.now(timezone.utc).timestamp()
+    output_data["lastUpdated"] = timestamp
 
     with open("stats.json", "w") as f:
         json.dump(output_data, f, indent=2)
