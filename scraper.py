@@ -9,7 +9,8 @@ api_version = "v3"
 
 CHANNELS = [
     "@gdcolon",
-    "@andgo122"
+    "@andgo122",
+    "@robtopgames"
 ]
 
 def main():

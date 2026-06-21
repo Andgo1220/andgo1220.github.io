@@ -31,47 +31,59 @@
             </div>
             <main>
                 <h1 class="title">The Most Subscribed to GD YouTubers</h1>
-                <p>This is a list of the most subscribed to GD YouTubers in order of most subs to least subs.</p>
-
-                <div class="table-container">
-                </div>
+                <p>This is a list of the most subscribed to GD YouTubers in order of most subs to least subs. It's also important to remember that for some reason YouTube does not let us see the full sub count, and instead rounds it to the first three digits instead.<br><br>It's also important to remember that this list updates only once per day. <span id="last-updated">[...]</span><br><br>You can suggest new people to be added to the list in <a href="https://forms.gle/AkuAbpWv61pvUsdd6">this Google Form!</a> Remember that if they have less than 1000 subscribers, or are not completely related to GD, they might not be added.</p>
                 <hr>
-                    <h2>Live Subscriber Analytics</h2>
-    <div id="time-container">Loading updates...</div>
-
-    <div id="dashboard"></div>
+                <h1 class="title">Live Subscriber Analytics</h1>
+                <div id="sub-table-container">Loading updates...</div>
 
     <script>
-        async function loadDashboard() {
+        async function fetchLocalJSON() {
             try {
                 const response = await fetch('/stats.json');
                 
                 if (!response.ok) {
-                    throw new Error(`Failed to load stats.json (Status: ${response.status})`);
+                throw new Error(`Failed to load JSON: ${response.status}`);
                 }
                 
-                const data = await response.json();
-                
-                document.getElementById('time-container').innerText = `Data Last Verified: ${data.updated_at}`;
-                
-                const dashboard = document.getElementById('dashboard');
-                dashboard.innerHTML = ''; 
+                data = await response.json();
 
-                for (const [channelId, subCount] of Object.entries(data.channels)) {
-                    const card = document.createElement('div');
-                    card.innerHTML = `
-                        <p>ID: ${channelId}<br>Subs: ${subCount}</p>
-                    `;
-                    dashboard.appendChild(card);
-                }
+                const updatedTimestamp = data.lastUpdated * 1000; 
+                const formattedDate = new Date(updatedTimestamp).toLocaleString();
                 
-            } catch (error) {
-                console.error("Dashboard Render Error:", error);
-                document.getElementById('time-container').innerText = "Error: Could not retrieve latest metrics.";
-            }
+                document.getElementById('last-updated').innerText = `Last Updated: ${formattedDate}`;
+                
+                const extractedList = Object.entries(data.Channels).map(([name, info]) => {
+                    return {
+                        channelName: name,
+                        number: parseInt(info[0], 10)
+                    };
+                });
+
+                extractedList.sort((a, b) => b.number - a.number);
+
+                console.log(extractedList);
+                        
+                let html = '<table class="andgo-table">';
+                
+                html += '<tr><th>Channel</th><th>Sub Count</th></tr>'
+
+                 // LOOP HERE: Dynamically append a row for every channel in your sorted array
+                extractedList.forEach(item => {
+                    html += `<tr><td>${item.channelName}</td><td>${item.number.toLocaleString()}</td></tr>`;
+                });
+                
+                html += '</table>';
+                document.getElementById('sub-table-container').innerHTML = html;
+
+                
+                } catch (error) {
+                    console.error('Error reading local JSON file:', error);
+                }
+
         }
 
-        window.addEventListener('DOMContentLoaded', loadDashboard);
+        fetchLocalJSON();
+
     </script>
             </main>
             <div id="footer-placeholder">
