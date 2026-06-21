@@ -205,7 +205,23 @@ CHANNELS = [
     "@androxmagd",
     "@luqualizer",
     "@cdmusicyt",
+    "@larriusdarius",
     "@maxdash3075",
+    "@lastprismalex",
+    "@bgram",
+    "@smangogd",
+    "@zallitz",
+    "@leygd",
+    "@diamondsplash",
+    "@wooshi999",
+    "@manix648",
+    "@lation",
+    "@stcubing",
+    "@azureturk",
+    "@woogi1411",
+    "@septagon7",
+    "@zerosr",
+    "@arshadow",
 ]
 
 def main():
