@@ -221,6 +221,8 @@ def main():
     timestamp = datetime.now(timezone.utc).timestamp()
     output_data["lastUpdated"] = timestamp
 
+    os.makedirs("sub_stats_archive", exist_ok=True)
+
     print(output_data)
 
     with open("stats.json", "w") as f:
