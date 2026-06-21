@@ -71,6 +71,7 @@ CHANNELS = [
     "@sikky",
     "@npesta",
     "@riottt",
+    "@aerovp",
     "@mrhappyjunior",
     "@toshdeluxe",
     "@knobbelboy",
