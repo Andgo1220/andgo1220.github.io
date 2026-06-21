@@ -21,7 +21,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           python -m pip install --upgrade pip
-          python -m pip install requests
+          pip install --upgrade google-api-python-client
           python scraper.py
 
       - name: Commit and Push Data Changes
