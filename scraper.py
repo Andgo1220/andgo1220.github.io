@@ -280,7 +280,9 @@ CHANNELS = [
     "@watchpiggy",
     "@lfritz",
     "@mohammedjakalemalabdulaantigd",
-    "@dki8i_gd"
+    "@dki8i_gd",
+    "@batyagd1",
+    "@andreya6"
 ]
 
 def main():
