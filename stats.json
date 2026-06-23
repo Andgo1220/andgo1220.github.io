@@ -1,12 +1,12 @@
 {
-  "lastUpdated": 1782107685.89019,
+  "lastUpdated": 1782187472.770627,
   "Channels": {
     "GD Colon": [
       "922000",
       "@gdcolon"
     ],
     "Andgo": [
-      "312",
+      "313",
       "@andgo122"
     ],
     "RobTopGames": [
@@ -18,7 +18,7 @@
       "@itszedargd"
     ],
     "ItzBran": [
-      "7550000",
+      "7540000",
       "@itzbrangd"
     ],
     "ZedarDash": [
@@ -34,7 +34,7 @@
       "@speedroute"
     ],
     "Stivenelvro": [
-      "3550000",
+      "3560000",
       "@stivenelvro"
     ],
     "Nexus [GD]": [
@@ -182,11 +182,11 @@
       "@srguillester"
     ],
     "Moldy": [
-      "538000",
+      "539000",
       "@moldygd"
     ],
     "Simon [GD]": [
-      "426000",
+      "425000",
       "@simonisbestgd"
     ],
     "Leneuinst": [
@@ -214,7 +214,7 @@
       "@viprin"
     ],
     "Doggie": [
-      "863000",
+      "866000",
       "@doggiedasher"
     ],
     "Bycraftxx": [
@@ -382,11 +382,11 @@
       "@matmart"
     ],
     "VortroxTwo": [
-      "362000",
+      "363000",
       "@vortroxtwo"
     ],
     "Alias": [
-      "218000",
+      "219000",
       "@aliasgd"
     ],
     "Trick": [
@@ -402,7 +402,7 @@
       "@squishyman67"
     ],
     "Cursed": [
-      "188000",
+      "189000",
       "@cursed6125"
     ],
     "FreshLakeWater": [
@@ -426,7 +426,7 @@
       "@zobrosgd"
     ],
     "Secret Way": [
-      "237000",
+      "238000",
       "@secretwaygd"
     ],
     "MindCap": [
@@ -434,7 +434,7 @@
       "@mindcap."
     ],
     "Swag Route": [
-      "64300",
+      "64900",
       "@swagroute0"
     ],
     "Just a GD player": [
@@ -450,7 +450,7 @@
       "@technicaljl"
     ],
     "KingSammeLIVE": [
-      "527000",
+      "528000",
       "@kingsammelive"
     ],
     "Vernam": [
@@ -493,12 +493,52 @@
       "123000",
       "@samifying"
     ],
+    "Press Start ": [
+      "810000",
+      "@pressstartmonumental"
+    ],
+    "StivenelvroPlus": [
+      "438000",
+      "@stivenelvroplus"
+    ],
+    "StivenelvroClips": [
+      "423000",
+      "@stivenelvroclips"
+    ],
+    "DashTime": [
+      "396000",
+      "@dashtimegd"
+    ],
+    "Squidy": [
+      "1000000",
+      "@squidy"
+    ],
+    "KaiGuy's Kickback": [
+      "201000",
+      "@kaiguyskickback"
+    ],
+    "baby bella \u196b\u1b61": [
+      "374000",
+      "@baby__bellaaz"
+    ],
+    "Peter Brayham": [
+      "328000",
+      "@peterbrayhamyt"
+    ],
+    "test": [
+      "299000",
+      "@tutorialismic"
+    ],
     "LufeGamer!": [
       "120000",
       "@mrlufegamertm"
     ],
+    "Reemii [GD]": [
+      "271000",
+      "@reemiigd"
+    ],
     "DIMA GD 2 ": [
-      "230000",
+      "231000",
       "@dima_gd_2"
     ],
     "Bli": [
@@ -506,16 +546,28 @@
       "@bli_gd"
     ],
     "LopsidedChicken": [
-      "111000",
+      "110000",
       "@lopsidedchickengd"
     ],
     "andromeda": [
       "104000",
       "@andromeda7674"
     ],
+    "TCD": [
+      "274000",
+      "@tcd_media"
+    ],
+    "GuitarShorts": [
+      "246000",
+      "@advyshorts"
+    ],
     "Algo": [
       "118000",
       "@algo.00"
+    ],
+    "RETROMAN": [
+      "266000",
+      "@retromangd"
     ],
     "Adaf": [
       "100000",
@@ -524,6 +576,70 @@
     "Subscribe Partition New Channel": [
       "101000",
       "@checkyyoutubechannel"
+    ],
+    "Kirby Gamer Art": [
+      "238000",
+      "@kirbygamer99"
+    ],
+    "Tespa\u00f1ol": [
+      "187000",
+      "@tespa\u00f1ol"
+    ],
+    "\u042d\u043d\u043a\u043e\u0434\u0438": [
+      "177000",
+      "@enc0dy"
+    ],
+    "Trusta": [
+      "173000",
+      "@trusta"
+    ],
+    "GuitarGameplays": [
+      "172000",
+      "@guitargameplays"
+    ],
+    "ItzBran Clips": [
+      "167000",
+      "@itzbranclips"
+    ],
+    "PureL": [
+      "176000",
+      "@purelsecret"
+    ],
+    "GD Sayori": [
+      "153000",
+      "@gd_sayori"
+    ],
+    "Cooper Mitchell": [
+      "147000",
+      "@coopermitcchell"
+    ],
+    "GD SkyCyan": [
+      "141000",
+      "@gdskycyan"
+    ],
+    "Fenix Channel": [
+      "137000",
+      "@fenix_channel"
+    ],
+    "3000Dan": [
+      "136000",
+      "@3000dan"
+    ],
+    "GS": [
+      "118000",
+      "@gs_gd"
+    ],
+    "Eiriley": [
+      "117000",
+      "@eiriley"
+    ],
+    "WhatGamerWha": [
+      "105000",
+      "@whatgamerwha"
+    ],
+    "IN_CredibleBacon": [
+      "105000",
+      "@1ncrediblebacon"
     ],
     "Etzer": [
       "100000",
@@ -534,8 +650,12 @@
       "@lemonsgd"
     ],
     "wPopoff": [
-      "227000",
+      "228000",
       "@wpopoff6461"
+    ],
+    "Ivan [GD] \u30c4": [
+      "243000",
+      "@iivangd"
     ],
     "Vit12": [
       "142000",
@@ -602,11 +722,11 @@
       "@serpongedash"
     ],
     "Zeronium": [
-      "106000",
+      "107000",
       "@zeronium"
     ],
     "gmdblue": [
-      "72900",
+      "73000",
       "@gmdblue"
     ],
     "GMD Tubular9": [
@@ -622,7 +742,7 @@
       "@culuc"
     ],
     "Absolute": [
-      "61500",
+      "61400",
       "@absolllute"
     ],
     "Rykiion": [
@@ -638,7 +758,7 @@
       "@davjt"
     ],
     "GeoBlitzy": [
-      "84400",
+      "84600",
       "@geoblitzy"
     ],
     "paqoe": [
@@ -646,7 +766,7 @@
       "@paqoe"
     ],
     "Itz Xtinct": [
-      "86700",
+      "86900",
       "@xtinctlol"
     ],
     "Blueskii": [
@@ -658,7 +778,7 @@
       "@mathgeniusgd"
     ],
     "OneAlphaHelix": [
-      "56600",
+      "56700",
       "@onealphahelix"
     ],
     "LeTim [GD]": [
@@ -670,11 +790,11 @@
       "@wavix"
     ],
     "Daily Geometry Dash 2.3 News": [
-      "47500",
+      "47600",
       "@xnyyct"
     ],
     "Denni": [
-      "72400",
+      "73600",
       "@fakedenni"
     ],
     "LeifY": [
@@ -710,15 +830,15 @@
       "@audieo"
     ],
     "PaxL": [
-      "29100",
+      "29300",
       "@paxlgd"
     ],
     "Vinny": [
-      "226000",
+      "227000",
       "@vinnycha123"
     ],
     "schark": [
-      "78100",
+      "78300",
       "@scharksatire"
     ],
     "schark27": [
@@ -730,7 +850,7 @@
       "@onilink"
     ],
     "NIMPOP": [
-      "91700",
+      "92100",
       "@nimpop"
     ],
     "BoldStep": [
@@ -742,7 +862,7 @@
       "@whizkid0521"
     ],
     "Conix": [
-      "158000",
+      "160000",
       "@conixgmd"
     ],
     "Mighty Minor": [
@@ -750,7 +870,7 @@
       "@mightyminors"
     ],
     "Geometry Dash Creator School": [
-      "49000",
+      "49100",
       "@gdcreatorschool"
     ],
     "Waterflame": [
@@ -758,7 +878,7 @@
       "@waterflamemusic"
     ],
     "Androxma": [
-      "88100",
+      "88200",
       "@androxmagd"
     ],
     "Luqualizer": [
@@ -786,7 +906,7 @@
       "@bgram"
     ],
     "Geo GD": [
-      "336000",
+      "337000",
       "@itsmegeogd"
     ],
     "SMango23": [
@@ -822,7 +942,7 @@
       "@stcubing"
     ],
     "AzureTurk": [
-      "23800",
+      "23900",
       "@azureturk"
     ],
     "WOOGI": [
@@ -838,7 +958,7 @@
       "@zerosr"
     ],
     "Arshadow": [
-      "38100",
+      "38200",
       "@arshadow"
     ],
     "WatchPiggy 2": [
@@ -910,7 +1030,7 @@
       "@klaux"
     ],
     "Electrify": [
-      "19600",
+      "19700",
       "@electrifyxd"
     ],
     "GalaxyDash": [
@@ -958,7 +1078,7 @@
       "@darwingd"
     ],
     "[cherry] team": [
-      "15600",
+      "15700",
       "@cherry_team_gd"
     ],
     "{\u51fa\u898b\u5869}Demishio": [
@@ -978,7 +1098,7 @@
       "@polterghast12"
     ],
     "Toph Talks": [
-      "17100",
+      "17200",
       "@realtophtalks"
     ],
     "MattTacc": [
@@ -1062,12 +1182,24 @@
       "@lfritz"
     ],
     "Mohammed Ja'kalem Al-abdula": [
-      "19500",
+      "19600",
       "@mohammedjakalemalabdulaantigd"
     ],
     "Dki8i [GD]": [
       "187000",
       "@dki8i_gd"
+    ],
+    "SerVax \ud83e\udd85": [
+      "14600",
+      "@batyagd1"
+    ],
+    "A6": [
+      "20600",
+      "@andreya6"
+    ],
+    "Tria": [
+      "17600",
+      "@nicktria_"
     ]
   }
 }
