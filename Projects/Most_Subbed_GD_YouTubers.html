@@ -42,7 +42,7 @@
                 const response = await fetch('/stats.json');
                 
                 if (!response.ok) {
-                throw new Error(`Failed to load JSON: ${response.status}`);
+                    throw new Error(`Failed to load JSON: ${response.status}`);
                 }
                 
                 data = await response.json();
@@ -68,7 +68,6 @@
                 
                 html += '<tr><th>Rank</th><th>Channel</th><th>Sub Count</th></tr>'
 
-                // LOOP HERE: Dynamically append a row for every channel in your sorted array
                 let i = 1;
                 extractedList.forEach(item => {
                     html += `<tr><td>${i}</td><td><a href="https://www.youtube.com/${item.handle}" target="_blank">${item.channelName}</a></td><td>${item.number.toLocaleString()}</td></tr>`;

@@ -314,7 +314,26 @@ CHANNELS = [
     "@dki8i_gd",
     "@batyagd1",
     "@andreya6",
-    "@nicktria_"
+    "@nicktria_",
+    "@mrdasher69",
+    "@galposaco",
+    "@alexpain24",
+    "@skewer56",
+    "@clementdavgd",
+    "@cloudgdyt",
+    "@pimtogd",
+    "@najungi",
+    "@itzapexgd",
+    "@iceemickey",
+    "@stevenvrogd",
+    "@랑께님",
+    "@soyelcuberdegd",
+    "@dave400ph",
+    "@miniproxy04",
+    "@luzoglive",
+    "@pixeldropppgd",
+    "@appsgd",
+    "@twisted51",
 ]
 
 def main():
