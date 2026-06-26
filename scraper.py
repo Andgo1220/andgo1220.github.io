@@ -86,6 +86,7 @@ CHANNELS = [
     "@letsplaygeometrydash",
     "@fnm04",
     "@flubgeometrydash",
+    "@hapypace",
     "@waboo",
     "@krmal",
     "@kriszgd",
@@ -334,6 +335,7 @@ CHANNELS = [
     "@pixeldropppgd",
     "@appsgd",
     "@twisted51",
+    "@jenkshouse",
 ]
 
 def main():
