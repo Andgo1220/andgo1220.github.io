@@ -25,6 +25,7 @@ CHANNELS = [
     "@kaiguygd",
     "@chiefbrioso",
     "@mulpan",
+    "@GDBeanNews",
     "@galluxi",
     "@xtrapnation",
     "@dashzedar",
@@ -36,6 +37,7 @@ CHANNELS = [
     "@beanable",
     "@ericvanwilderman",
     "@dorami",
+    "@SarixOfficial"
     "@mikhagd",
     "@itzsquidygd",
     "@titanchannel",
