@@ -16,7 +16,7 @@ CHANNELS = [
     "@zedardash",
     "@guitarherostyles",
     "@speedroute",
-    "@hakarigd",
+    "@hirazu_gd_official",
     "@stivenelvro",
     "@nexusgd10",
     "@glowstgd",
