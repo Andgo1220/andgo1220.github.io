@@ -60,6 +60,7 @@ CHANNELS = [
     "@simonisbestgd",
     "@leneuinst",
     "@rockyjones",
+    "@NoFasa124",
     "@mistertopi",
     "@staggy_01",
     "@spu7nix",
