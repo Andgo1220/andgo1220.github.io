@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Andgo</title>
+    <meta name="description" content="The website of a guy who likes programming, and Geometry Dash! I do things such as AI training, and other random projects I feel like making.">
+    <meta name="keywords" content="Geometry Dash, Andgo, GD, AI Training, Programming">
+    <meta name="author" content="Andgo">
+    <link rel="canonical" href="https://andgo1220.github.io/">
+
+    <meta name="google-site-verification" content="NH198JukGaGIKlks3obDjnIhC5t84ZD10SPlIGjQmNE" />
+    <meta property="og:title" content="Andgo">
+    <meta property="og:description" content="The website of a guy who likes programming, and Geometry Dash! I do things such as AI training, and other random projects I feel like making.">
+    <meta property="og:image" content="https://your-andgo-site.com/og-image.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Andgo">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/CSS/styles.css">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <meta name="robots" content="index, follow">
+</head>
+    <body>
+        <div class="main-container">
+            <div id="header-placeholder">
+
+            </div>
+            <main>
+                <h1 class="title">aaaaaaaaaa</h1>
+                <p>This is a list of the most subscribed to GD YouTubers in order of most subs to least subs. It's important to note that for some reason YouTube does not let us see the full sub count, and instead rounds it to the first three digits instead.<br><br>It's also important to remember that this list updates only once per day. <span id="last-updated">[...]</span><br><br>You can suggest new people to be added to the list in <a href="https://forms.gle/AkuAbpWv61pvUsdd6" target="_blank">this Google Form!</a> Remember that if they have less than 10000 subscribers, or are not completely related to GD, they might not be added.</p>
+                <hr>
+                <h1 class="title">Live Subscriber Counts</h1>
+                <div id="sub-table-container">Loading updates...</div>
+
+    <script>
+        async function fetchGJAccountData() {
+
+            const proxyUrl = "https://api.allorigins.win/get?url=";
+            const targetUrl = "http://boomlings.com/database/getGJUserInfo20.php";
+
+            const params = new URLSearchParams({
+                userName: "RobTop",
+                secret: "Wmfd2893gb7"
+            });
+
+            fetch(proxyUrl + encodeURIComponent(targetUrl), {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: params.toString()
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Raw Server Response:", data);
+            })
+            .catch(error => console.error("Error fetching data:", error));
+
+        }
+
+        fetchGJAccountData();
+
+    </script>
+            </main>
+            <div id="footer-placeholder">
+
+            </div>
+        </div>
+        <script src="/JS/template_load.js"></script>
+    </body>
+</html>
