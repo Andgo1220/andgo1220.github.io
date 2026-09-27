@@ -1,3 +1,22 @@
+// Select the image
+const images = document.querySelectorAll('.blogimg');
+
+// Add click event listener
+if (images) {
+    for(const x of images) {
+        x.addEventListener('click', () => {
+            if (x.requestFullscreen) {
+                x.requestFullscreen();
+            } else if (x.webkitRequestFullscreen) { /* Safari */
+                x.webkitRequestFullscreen();
+            } else if (x.msRequestFullscreen) { /* IE11 */
+                x.msRequestFullscreen();
+            }
+        });
+    }
+}
+
+
 function loadElement(id, file) {
     fetch(file)
         .then(response => response.text())
