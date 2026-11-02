@@ -37,32 +37,30 @@
                 <div id="sub-table-container">Loading updates...</div>
 
     <script>
-        async function fetchGJAccountData() {
+async function searchUser(username) {
+  const proxyUrl = "https://gd-server-proxy.vercel.app/api/get-profile.js";
 
-            const proxyUrl = "https://api.allorigins.win/get?url=";
-            const targetUrl = "http://boomlings.com/database/getGJUserInfo20.php";
+  try {
+    const response = await fetch(proxyUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username })
+    });
 
-            const params = new URLSearchParams({
-                userName: "RobTop",
-                secret: "Wmfd2893gb7"
-            });
+    if (!response.ok) throw new Error("Search request failed");
 
-            fetch(proxyUrl + encodeURIComponent(targetUrl), {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: params.toString()
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log("Raw Server Response:", data);
-            })
-            .catch(error => console.error("Error fetching data:", error));
+    const rawSearchText = await response.text();
+    console.log(`Raw search results for ${username}:`, rawSearchText);
+    return rawSearchText;
+    
+  } catch (error) {
+    console.error("Error executing search fetch:", error);
+  }
+}
 
-        }
+// Call the function directly in your client scripts
+searchUser("RobTop");
 
-        fetchGJAccountData();
 
     </script>
             </main>
